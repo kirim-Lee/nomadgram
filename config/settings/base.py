@@ -67,7 +67,7 @@ THIRD_PARTY_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'rest_framework',
+    'rest_framework', # REST framework pipenv install djangorestframework
 ]
 LOCAL_APPS = [
     'nomadgram.users.apps.UsersConfig',
