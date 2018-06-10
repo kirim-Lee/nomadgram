@@ -20,6 +20,7 @@ urlpatterns = [
         include("nomadgram.users.urls", namespace="users"),
     ),
     url(r"^images/", include("nomadgram.images.urls", namespace="images")),
+    url(r"^notifications/", include("nomadgram.notifications.urls", namespace="notifications")),
     url(r"^accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
 ] + static(

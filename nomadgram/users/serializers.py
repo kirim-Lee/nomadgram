@@ -5,10 +5,14 @@ from nomadgram.images import serializers as image_serializers
 class UserProfileSerializer(serializers.ModelSerializer):
 
     images = image_serializers.CountImageSerializer(many=True)
+    post_count = serializers.ReadOnlyField() #ReadOnlyField:읽어오기만 한다는것
+    followers_count = serializers.ReadOnlyField()
+    following_count = serializers.ReadOnlyField()
 
     class Meta:
         model = models.User
         fields = (
+            'profile_image',
             'username',
             'name',
             'bio',
