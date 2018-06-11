@@ -5,7 +5,7 @@ app_name = "images"
 urlpatterns = [
     url(
         regex=r'^$', #regular expression
-        view=views.Feed.as_view(), #view
+        view=views.Images.as_view(), #view
         name='feed' #name
     ),
     url(
