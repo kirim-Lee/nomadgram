@@ -182,6 +182,8 @@ module.exports = {
                       options: {
                         importLoaders: 1,
                         minimize: true,
+                        //modules:true,
+                        //localIdentName:"[path][name]__[local]--[hash:base64:5]",
                         sourceMap: shouldUseSourceMap,
                       },
                     },
@@ -209,7 +211,8 @@ module.exports = {
                     {
                       loader:require.resolve('sass-loader'),
                       options:{
-                        sourceMap:true
+                        sourceMap:true,
+                        data:`@import "${paths.appSrc.replace(/\\/g, '/')}/config/_varialbles.scss";`
                       }
                     }
                   ],
