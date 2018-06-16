@@ -74,6 +74,7 @@ THIRD_PARTY_APPS = [
     'taggit_serializer', # tag serializer
     'rest_auth', # rest auth
     'rest_auth.registration', # enable registration
+    'corsheaders', # 리액트와 DB를 연결하기 위해 작업 중 하나
 ]
 LOCAL_APPS = [
     'nomadgram.users.apps.UsersConfig',
@@ -143,6 +144,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware' # 다른 서버에서 접속할 때 미들웨어에서의 차단을 방지해주는 기능이다.
 ]
 
 # STATIC
@@ -154,6 +156,7 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = [
     str(APPS_DIR.path('static')),
+    str(ROOT_DIR.path('frontend','build','static')) # 리액트에서 빌드하는 파일들의 위치를 지정해 주는 것임
 ]
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = [
@@ -259,3 +262,11 @@ REST_FRAMEWORK = {
 
 REST_USE_JWT = True
 ACCOUNT_LOGOUT_ON_GET = True
+
+SOCIALACCOUNT_QUERY_EMAIL = True
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+JWT_AUTH = {
+    'JWT_VERIFY_EXPIRATION': False
+}
