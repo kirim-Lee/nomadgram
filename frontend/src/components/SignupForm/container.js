@@ -17,6 +17,7 @@ class Container extends Component {
             passwordValue={password}
             handleInputChange={this._handleInputChange}
             handleSubmit={this._handleSubmit}
+            handleFaceBookLogin={this._handleFaceBookLogin}
         />;
     }
     _handleInputChange= event =>{
@@ -29,6 +30,9 @@ class Container extends Component {
     _handleSubmit = event => {
         event.preventDefault();
         console.log(this.state);
+    }
+    _handleFaceBookLogin = response =>{
+        console.log(response);
     }
 
 }
