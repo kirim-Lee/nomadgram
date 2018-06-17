@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "react-facebook-login": "^4.0.1"
+    "react-facebook-login": "^4.0.1",
+    "react-textarea-autosize": "^6.1.0"
   }
 }
