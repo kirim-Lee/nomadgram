@@ -11,9 +11,6 @@ class App extends Component{
   static propTypes={
     isLoggedIn:PropTypes.bool.isRequired
   }
-  componentDidUpdate(){
-    console.log("ttt",this.props);
-  }
   render(){
     const {isLoggedIn} = this.props;
     return (
