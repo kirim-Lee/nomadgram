@@ -11,10 +11,24 @@ class Container extends Component{
     }
     componentDidMount(){
         const {getFeed} =this.props;
-        getFeed();
+        if(!this.props.feed){
+            getFeed();
+        }else{ //이미 API 요청이 되어진게 있으면 다시 API를 요청하지 않음
+            this.setState({
+                loading:false
+            })
+        }
+    }
+    componentWillReceiveProps=(nextProps)=>{
+        if(nextProps.feed){
+            this.setState({
+                loading:false
+            });
+        }
     }
     render(){
-        return <Feed {...this.state}/>
+        const {feed} = this.props;
+        return <Feed {...this.state} feed={feed}/>
     }
 }
 
