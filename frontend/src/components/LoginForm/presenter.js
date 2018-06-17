@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FacebookLogin from 'react-facebook-login';
 import formStyles from 'shared/formStyles.scss';
+import {Link} from "react-router-dom";
 
 const LoginForm = props => (
     <div className={formStyles.formComponent}>
@@ -33,7 +34,9 @@ const LoginForm = props => (
             icon="fa-facebook-official"
             textButton="Log in with Facebook!!"
         />
-        <span className={formStyles.forgotLink}>Forgot password?</span>
+        <span className={formStyles.forgotLink}>
+            <Link to={"/forgot"}>Forgot password?</Link>
+        </span>
     </div>
 );
 
