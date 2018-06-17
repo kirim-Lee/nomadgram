@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.conf import settings
 import os
 
-class ReactAppview(View):
+class ReactAppView(View):
 
     def get(self, request):
         try:

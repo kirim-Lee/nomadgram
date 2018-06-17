@@ -1,10 +1,38 @@
 import React,{Component} from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.scss';
+import PhotoActions from 'components/PhotoActions'
+import PhotoComments from 'components/PhotoComments';
+import TimeStamp from 'components/TimeStamp';
+import CommentBox from 'components/CommentBox';
 
 const FeedPhoto= (props,context) => {
     console.log(props);
-    return (<div className={styles.feedPhoto}>hello</div>)
+    return (
+        <div className={styles.feedPhoto}>
+            <header>
+                <img 
+                    src={props.creator.profile_image || require('images/noPhoto.jpg')} 
+                    alt={props.creator.username}
+                />
+                <div>
+                    <span>{props.creator.username}</span>
+                    <span>{props.location}</span>
+                </div>
+            </header>
+            <img src={props.file} alt={props.caption} />
+            <div>
+                <PhotoActions number={props.like_count} />
+                <PhotoComments 
+                    caption={props.caption}
+                    creator={props.creator}
+                    comments={props.comments} 
+                />
+                <TimeStamp time={props.natural_time}/>
+                <CommentBox />
+            </div>
+        </div>
+    )
 }
 
 FeedPhoto.propTypes={
@@ -25,7 +53,7 @@ FeedPhoto.propTypes={
             message:PropTypes.string.isRequired
         })
     ),
-    created_at:PropTypes.string.isRequired
+    natural_time:PropTypes.string.isRequired
 }
 
 export default FeedPhoto; 
