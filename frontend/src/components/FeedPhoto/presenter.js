@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.scss';
 import PhotoActions from 'components/PhotoActions'
@@ -34,7 +34,7 @@ const FeedPhoto= (props,context) => {
                     comments={props.comments} 
                 />
                 <TimeStamp time={props.natural_time}/>
-                <CommentBox />
+                <CommentBox photoId={props.id} />
             </div>
         </div>
     )
