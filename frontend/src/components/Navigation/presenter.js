@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styles from "./styles.scss";
 
+
 const Navigation = (props, context) => (
   <div className={styles.navigation}>
     <div className={styles.inner}>
@@ -17,11 +18,15 @@ const Navigation = (props, context) => (
         </Link>
       </div>
       <div className={styles.column}>
+      <form onSubmit={props.onSubmit}>
         <input
           type="text"
           placeholder={context.t("Search")}
           className={styles.searchInput}
+          value={props.termn}
+          onChange={props.onInputChange}
         />
+      </form>
       </div>
       <div className={styles.column}>
         <div className={styles.navIcon}>
@@ -45,5 +50,11 @@ const Navigation = (props, context) => (
 Navigation.contextTypes = {
   t: PropTypes.func.isRequired
 };
+
+Navigation.propTypes={
+  onInputChange:PropTypes.func.isRequired,
+  onSubmit:PropTypes.func.isRequired,
+  termn:PropTypes.string.isRequired
+}
 
 export default Navigation;
